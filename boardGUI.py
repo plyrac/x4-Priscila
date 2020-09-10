@@ -111,6 +111,21 @@ def vencedor(winner):
 
     popup.update()
 
+
+def fim(placar):
+    popup = Tk()
+    popup.wm_title("Fim de jogo")
+    label = Label(popup, text=str(placar[0]) + " fez " + str(len(placar)) + " ponto(s)!" + "\n" +
+                              "obs. para fechar o jogo, apertar botão vermelho (X)", font=LARGE_FONT)
+    label.pack(side="top", fill="x", pady=10)
+
+    popup.update()
+
+
 def fechar():
-    while 'normal' == mainWindow.state():
-        mainWindow.update()
+    mainWindow.protocol("WM_DELETE_WINDOW", on_closing)
+    mainWindow.mainloop()
+
+
+def on_closing():
+    mainWindow.destroy()

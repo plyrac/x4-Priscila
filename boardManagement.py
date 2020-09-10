@@ -36,8 +36,10 @@ def partida():
             matriz, verifica, winner, seqWin = rodada(matriz, ordemPlay)
 #        print("Vencedor é", winner)
         visao.vencedor(winner)
+        ordemPlay = [x for x in ordemPlay if x[0] != winner]
         placar.append(winner)
         verifica = False
+    visao.fim(placar)
     print(placar)
     visao.fechar()
     return matriz
